@@ -2,3 +2,5 @@ node_modules/
 /Frontend-v1
 .env
 .env.local
+.cursor
+docs/
