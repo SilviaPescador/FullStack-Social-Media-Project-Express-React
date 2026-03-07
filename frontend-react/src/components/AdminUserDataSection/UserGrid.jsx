@@ -1,4 +1,4 @@
-import * as XLSX from "xlsx";
+import ExcelJS from "exceljs";
 import { AvatarLink } from "../AvatarLink/AvatarLink";
 
 function UserGrid(props) {
@@ -14,7 +14,6 @@ function UserGrid(props) {
 		return new Date(date).toLocaleDateString("es-ES", options);
 	}
 
-	// La libreria xlsx acepta un array bidimensional, no un objeto. Transformamos las props en un array bidimensional.
 	const createDataArray = () => {
 		const headers = [
 			"Avatar",
@@ -53,13 +52,23 @@ function UserGrid(props) {
 		return [headers, ...data];
 	};
 
-	const exportToExcel = () => {
+	const exportToExcel = async () => {
 		const data = createDataArray();
-		const ws = XLSX.utils.aoa_to_sheet(data);
-	    
-		const wb = XLSX.utils.book_new();
-		XLSX.utils.book_append_sheet(wb, ws, "Tabla de usuarios");
-		XLSX.writeFile(wb, "Tabla de usuarios.xlsx");
+		const workbook = new ExcelJS.Workbook();
+		const worksheet = workbook.addWorksheet("Tabla de usuarios");
+
+		data.forEach((row) => worksheet.addRow(row));
+
+		const buffer = await workbook.xlsx.writeBuffer();
+		const blob = new Blob([buffer], {
+			type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+		});
+		const url = URL.createObjectURL(blob);
+		const link = document.createElement("a");
+		link.href = url;
+		link.download = "Tabla de usuarios.xlsx";
+		link.click();
+		URL.revokeObjectURL(url);
 	};
 
 	return (

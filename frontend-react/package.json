@@ -1,53 +1,40 @@
 {
   "name": "frontend-react",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "dependencies": {
-    "@popperjs/core": "^2.11.7",
-    "@reduxjs/toolkit": "^1.9.5",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.13.5",
-    "bootstrap": "^5.3.0-alpha3",
-    "bootstrap-icons": "^1.10.5",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-grid-layout": "^1.3.4",
-    "react-hook-form": "^7.43.9",
-    "react-intersection-observer": "^9.4.3",
-    "react-player": "^2.12.0",
-    "react-redux": "^8.0.5",
-    "react-router-dom": "^6.30.3",
-    "react-scripts": "^5.0.1",
-    "react-validation": "^3.0.7",
-    "sweetalert2": "^11.22.4",
-    "uuid": "^9.0.0",
-    "validator": "^13.15.22",
-    "xlsx": "^0.18.5"
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "@reduxjs/toolkit": "^2.5.0",
+    "axios": "^1.7.9",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "exceljs": "^4.4.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-grid-layout": "^1.5.0",
+    "react-hook-form": "^7.54.0",
+    "react-intersection-observer": "^9.14.0",
+    "react-player": "^2.16.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^6.28.0",
+    "sweetalert2": "^11.14.5",
+    "uuid": "^11.0.5",
+    "validator": "^13.12.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.7"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
   }
 }
