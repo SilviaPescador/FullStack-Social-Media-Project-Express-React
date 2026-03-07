@@ -22,7 +22,7 @@ jobs:
           node-version: "24"
           # cache deshabilitado: evita "Some specified paths were not resolved" con pnpm workspaces
       - run: pnpm install --frozen-lockfile
-      - run: pnpm --filter equipo3backend audit
+      - run: cd Backend && pnpm audit
 
   audit-frontend:
     name: Frontend Audit
@@ -37,7 +37,7 @@ jobs:
           node-version: "24"
           # cache deshabilitado: evita "Some specified paths were not resolved" con pnpm workspaces
       - run: pnpm install --frozen-lockfile
-      - run: pnpm --filter frontend-react audit
+      - run: cd frontend-react && pnpm audit
 
   build-frontend:
     name: Frontend Build
