@@ -1,0 +1,19 @@
+{
+  "name": "fullstack-social-media",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Red social fullstack - Express + React (Vite)",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "install:all": "cd Backend && pnpm install && cd ../frontend-react && pnpm install",
+    "postinstall": "cd Backend && pnpm install && cd ../frontend-react && pnpm install",
+    "dev": "cd Backend && pnpm dev & cd frontend-react && pnpm dev",
+    "dev:backend": "cd Backend && pnpm dev",
+    "dev:frontend": "cd frontend-react && pnpm dev",
+    "build": "cd frontend-react && pnpm build",
+    "test": "cd Backend && pnpm test",
+    "audit:all": "echo '--- Backend ---' && cd Backend && pnpm audit && echo '--- Frontend ---' && cd ../frontend-react && pnpm audit"
+  }
+}

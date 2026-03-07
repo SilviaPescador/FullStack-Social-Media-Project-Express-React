@@ -1,2 +1,4 @@
+node_modules/
 /Frontend-v1
-/node-modules
+.env
+.env.local

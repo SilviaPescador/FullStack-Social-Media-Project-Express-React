@@ -22,7 +22,7 @@ jobs:
           version: 10
       - uses: actions/setup-node@v4
         with:
-          node-version-file: ".nvmrc"
+          node-version: "24"
           cache: "pnpm"
           cache-dependency-path: Backend/pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile
@@ -41,7 +41,7 @@ jobs:
           version: 10
       - uses: actions/setup-node@v4
         with:
-          node-version-file: ".nvmrc"
+          node-version: "24"
           cache: "pnpm"
           cache-dependency-path: frontend-react/pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile
@@ -60,7 +60,7 @@ jobs:
           version: 10
       - uses: actions/setup-node@v4
         with:
-          node-version-file: ".nvmrc"
+          node-version: "24"
           cache: "pnpm"
           cache-dependency-path: frontend-react/pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile

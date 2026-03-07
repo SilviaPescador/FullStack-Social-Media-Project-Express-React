@@ -1,7 +1,5 @@
 # Proyecto Final: Bootcamp Tecla - Red Social Fullstack
 
-![Consigna Proyecto final](https://github.com/Ensenada-3-team/EJ_INCREMENTAL_equipo3/blob/09f32933646ca0c1e5743b087f14169e3d05bb33/frontend-react/public/sprint-final.png) Sprint Final
-
 Red social desarrollada con **Express** en el backend y **React** (migrado a Vite) en el frontend.
 
 > Proyecto de fin de Bootcamp (2023), modernizado en marzo de 2026 con migración de dependencias, gestor de paquetes y herramientas de build.
@@ -12,13 +10,29 @@ Red social desarrollada con **Express** en el backend y **React** (migrado a Vit
 |------|-------------|
 | **Frontend** | React 18, Redux Toolkit 2, React Router 6, Bootstrap 5, Vite |
 | **Backend** | Express 4, MySQL2, JWT, bcrypt |
-| **Tooling** | pnpm, GitHub Actions (audit + build), Node >= 22 |
+| **Tooling** | pnpm, GitHub Actions (audit + build), Node >= 24 |
 
 ## Requisitos previos
 
-- **Node.js** >= 22 (ver `.nvmrc`)
+- **Node.js** >= 24 (ver `.nvmrc`)
 - **pnpm** >= 10
 - **MySQL** (base de datos local)
+
+## Instalación rápida
+
+Desde la raíz del proyecto:
+
+```bash
+pnpm install        # instala dependencias de backend y frontend
+pnpm dev            # levanta backend (puerto 3000) y frontend (puerto 3001) en paralelo
+```
+
+O por separado:
+
+```bash
+pnpm dev:backend    # solo backend
+pnpm dev:frontend   # solo frontend
+```
 
 ## Backend - Express
 
