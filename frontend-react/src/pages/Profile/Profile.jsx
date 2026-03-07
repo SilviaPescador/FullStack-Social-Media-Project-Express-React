@@ -18,8 +18,8 @@ function Profile() {
 	return (
 		<Layout>
 			<InterestsSection />
-			<div className="col-md-10 col-lg-10">
-				<div className="container-fluid">
+			<div className="col-12 col-md-10 col-lg-10 overflow-hidden">
+				<div className="w-100">
 					<ProfileSection friendId={friendId} />
 					<div className="row">
 						<FeedbackSection friendId={friendId} />

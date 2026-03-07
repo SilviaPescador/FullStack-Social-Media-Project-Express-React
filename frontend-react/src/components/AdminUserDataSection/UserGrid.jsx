@@ -72,71 +72,74 @@ function UserGrid(props) {
 	};
 
 	return (
-		<div className="container-fluid  rounded sombra">
-			<h2 className="text-center pt-3">
-				Usuarios registrados{" "}
-				<button className="btn fs-3" onClick={exportToExcel}>
-					<i className="bi bi-file-earmark-spreadsheet"></i>
-				</button>
-			</h2>
-			<div className="row">
-				<div className="col">
-					<div className="bg-light">
-						<div className="table-responsive rounded sombra">
-							<table className="table table-responsive table-fluid overflow-auto border border-dark text-start align-middle table-hover table-striped ">
-								<thead className="border border-dark border-3 text-sm-start">
-									<tr className="fs-5 text-center align-middle table-success">
-										<th>Avatar</th>
-										<th className="border border-dark">ID</th>
-										<th>Rol</th>
-										<th>Alias</th>
-										<th>Nombre</th>
-										<th>Apellido</th>
-										<th>Email</th>
-										<th>Ocupacion</th>
-										<th>Ubicación</th>
-										<th>Nac.</th>
-										<th>Género</th>
-										<th>Linkedin</th>
-										<th>Idioma</th>
-										<th>Última conexión</th>
+		<div className="card w-100 admin-users-card">
+			<div className="card-body p-4">
+				<div className="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 mb-4">
+					<h2 className="mb-0 text-center text-md-start">
+						Usuarios registrados
+					</h2>
+					<button
+						className="btn btn-outline-dark btn-sm flex-shrink-0"
+						onClick={exportToExcel}
+						title="Exportar a Excel"
+					>
+						<i className="bi bi-file-earmark-spreadsheet me-1"></i>
+						Exportar
+					</button>
+				</div>
+				<div className="table-responsive overflow-x-auto rounded admin-users-table-wrapper">
+					<table className="table table-hover table-striped align-middle mb-0 admin-users-table">
+							<thead>
+								<tr className="table-light text-center">
+									<th>Avatar</th>
+									<th>ID</th>
+									<th>Rol</th>
+									<th>Alias</th>
+									<th>Nombre</th>
+									<th>Apellido</th>
+									<th>Email</th>
+									<th>Ocupacion</th>
+									<th>Ubicación</th>
+									<th>Nac.</th>
+									<th>Género</th>
+									<th>Linkedin</th>
+									<th>Idioma</th>
+									<th>Última conexión</th>
+								</tr>
+							</thead>
+							<tbody>
+								{props.users.map((user) => (
+									<tr key={user.user_id}>
+										<td>
+											<AvatarLink
+												userId={user.user_id}
+												avatar={user.avatar}
+												size={50}
+											/>
+										</td>
+										<td className="text-center">
+											{user.user_id}
+										</td>
+										<td >{user.role}</td>
+										<td>@{user.nickname}</td>
+										<td>{user.name}</td>
+										<td>{user.firstname}</td>
+										<td>{user.email}</td>
+										<td>{user.occupation}</td>
+										<td>{user.location}</td>
+										<td className="text-center">
+											{formatDate(user.birthdate)}
+										</td>
+										<td className="text-center">{user.gender}</td>
+										<td>{user.linkedin}</td>
+										<td>{user.language}</td>
+										<td className="text-center">
+											{formatDate(user.last_login, true)}
+										</td>
 									</tr>
-								</thead>
-								<tbody>
-									{props.users.map((user) => (
-										<tr key={user.user_id} style={{ fontSize: "0.8rem" }} >
-											<td>
-												<AvatarLink
-													userId={user.user_id}
-													avatar={user.avatar}
-													size={50}
-												/>
-											</td>
-											<td className="border border-dark table-success text-center">
-												{user.user_id}
-											</td>
-											<td >{user.role}</td>
-											<td>@{user.nickname}</td>
-											<td>{user.name}</td>
-											<td>{user.firstname}</td>
-											<td>{user.email}</td>
-											<td>{user.occupation}</td>
-											<td>{user.location}</td>
-											<td className="text-center">
-												{formatDate(user.birthdate)}
-											</td>
-											<td className="text-center">{user.gender}</td>
-											<td>{user.linkedin}</td>
-											<td>{user.language}</td>
-											<td className="text-center">
-												{formatDate(user.last_login, true)}
-											</td>
-										</tr>
-									))}
-								</tbody>
-							</table>
-						</div>
-					</div>
+								))}
+							</tbody>
+					</table>
 				</div>
 			</div>
 		</div>

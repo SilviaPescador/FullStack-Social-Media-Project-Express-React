@@ -33,7 +33,7 @@ function CreatePostElement(props) {
 
 	return (
 		<div className="row">
-			<div className="col card bg-secondary bg-gradient border-0">
+			<div className="col card bg-light bg-gradient border-0">
 				<div className="d-flex w-100 rounded mb-2 p-0">
 					<AvatarLink
 						userId={user.user_id}

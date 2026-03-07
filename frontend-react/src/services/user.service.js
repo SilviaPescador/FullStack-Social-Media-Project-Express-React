@@ -21,7 +21,9 @@ export default class UserService {
 	async getUserById(userId) {
 		try {
 			const response = await axios.get(`${API_URL}/user/${userId}`);
-			return [response.data][0][0];
+			// La API devuelve un array; extraemos el objeto usuario
+			const data = response.data;
+			return Array.isArray(data) ? data[0] : data;
 		} catch (error) {
 			if (error.response) {
 				throw new Error(error.response.data.message);

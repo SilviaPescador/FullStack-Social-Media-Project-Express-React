@@ -40,10 +40,10 @@ function Navbar() {
 	}
 
 	return (
-		<nav className="navbar navbar-expand-lg bg-body-transparent container-fluid">
-			<div className="container-fluid">
+		<nav className="navbar navbar-expand-lg bg-body-tertiary sticky-top shadow-sm" style={{ zIndex: 1030 }}>
+			<div className="app-content navbar-content">
 				{/* COMPONENTE DEL LOGO */}
-				<div className="container col-2">
+				<div className="flex-shrink-0">
 					<Link to="/" className="navbar-brand">
 						<img className="logo" src="/enter-black.png" alt="Logo-Tecla"/>
 					</Link>
@@ -69,7 +69,7 @@ function Navbar() {
 					<ul className="navbar-nav">
 						{/* MENSAJE DE BIENVENIDA */}
 						<li className="nav-item">
-							<h5 className="nav-welcome d-none border border-dark d-md-block rounded rounded-5 p-2 ">
+							<h5 className="nav-welcome d-none d-md-block rounded rounded-5 p-2 bg-light border border-light shadow-sm">
 								{!token ? (
 									<>
 										¡¡Echa un vistazo!!

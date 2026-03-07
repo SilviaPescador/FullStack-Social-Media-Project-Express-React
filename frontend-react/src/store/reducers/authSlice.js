@@ -71,7 +71,14 @@ const authSlice = createSlice({
 		error: false,
 		payload: null,
 	},
-	reducers: {},
+	reducers: {
+		setUser: (state, { payload }) => {
+			if (payload) {
+				state.user = payload;
+				localStorage.setItem("user", JSON.stringify(payload));
+			}
+		},
+	},
 	extraReducers: (builder) => {
 		builder
 			.addCase(login.pending, (state) => {
@@ -126,4 +133,5 @@ const authSlice = createSlice({
 	},
 });
 
+export const { setUser } = authSlice.actions;
 export default authSlice.reducer;

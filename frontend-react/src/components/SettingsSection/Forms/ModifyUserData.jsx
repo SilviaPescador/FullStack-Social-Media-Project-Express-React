@@ -165,7 +165,7 @@ function ModifyUserData() {
 				<Controller
 					name="avatar"
 					control={control}
-					defaultValue={""}
+					defaultValue={user?.avatar ?? ""}
 					render={({ field }) => (
 						<InputField
 							id="avatar"

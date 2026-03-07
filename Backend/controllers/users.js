@@ -127,21 +127,21 @@ class UserController {
 		const userData = req.body;
 
 		try {
-			// Existe el usuario en la bd?
-			const isUser = await pool.query("SELECT * FROM users WHERE user_id = ?", [
+			const [rows] = await pool.query("SELECT * FROM users WHERE user_id = ?", [
 				userId,
 			]);
 
-			if (isUser.length === 0) {
+			if (!rows || rows.length === 0) {
 				return res
 					.status(404)
 					.json({ message: "El usuario no está en la base de datos" });
 			}
 
+			const existingUser = rows[0];
 			const updatedFields = {};
 
 			for (const [key, value] of Object.entries(userData)) {
-				if (value !== isUser[0][key] && value !== "") {
+				if (value !== existingUser[key] && value !== "") {
 					updatedFields[key] = value;
 				}
 			}
@@ -150,7 +150,7 @@ class UserController {
 			if (Object.keys(updatedFields).length === 0) {
 				return res.status(200).json({
 					message: "No se han modificado campos de datos",
-					user: isUser[0],
+					user: existingUser,
 				});
 			}
 
@@ -159,14 +159,14 @@ class UserController {
 				userId,
 			]);
 
-			const updatedUser = await pool.query(
+			const [updatedRows] = await pool.query(
 				"SELECT * FROM users WHERE user_id = ?",
 				[userId]
 			);
 
 			return res.status(200).json({
 				message: "Usuario actualizado con éxito",
-				user: updatedUser[0],
+				user: updatedRows[0],
 			});
 		} catch (error) {
 			console.error(error);

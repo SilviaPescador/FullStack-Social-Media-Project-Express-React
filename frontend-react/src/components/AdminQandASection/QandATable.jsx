@@ -92,7 +92,7 @@ function QandATable(props) {
 						<div className="rounded sombra ">
 							<table
 								style={{ fontSize: "0.9rem" }}
-								className="table table-responsive table-fluid table-hover table-bordered overflow-auto border border-dark text-start align-middle bg-light"
+								className="table table-responsive table-hover align-middle bg-light"
 							>
 								<thead className="text-center align-middle table-dark ">
 									<tr>
