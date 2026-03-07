@@ -12,9 +12,6 @@ jobs:
   audit-backend:
     name: Backend Audit
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: Backend
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -23,17 +20,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
-          cache: "pnpm"
-          cache-dependency-path: Backend/pnpm-lock.yaml
+          # cache deshabilitado: evita "Some specified paths were not resolved" con pnpm workspaces
       - run: pnpm install --frozen-lockfile
-      - run: pnpm audit
+      - run: pnpm --filter equipo3backend audit
 
   audit-frontend:
     name: Frontend Audit
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: frontend-react
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -42,17 +35,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
-          cache: "pnpm"
-          cache-dependency-path: frontend-react/pnpm-lock.yaml
+          # cache deshabilitado: evita "Some specified paths were not resolved" con pnpm workspaces
       - run: pnpm install --frozen-lockfile
-      - run: pnpm audit
+      - run: pnpm --filter frontend-react audit
 
   build-frontend:
     name: Frontend Build
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: frontend-react
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -61,7 +50,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
-          cache: "pnpm"
-          cache-dependency-path: frontend-react/pnpm-lock.yaml
+          # cache deshabilitado: evita "Some specified paths were not resolved" con pnpm workspaces
       - run: pnpm install --frozen-lockfile
-      - run: pnpm build
+      - run: pnpm --filter frontend-react build
