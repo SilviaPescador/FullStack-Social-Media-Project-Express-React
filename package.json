@@ -6,14 +6,19 @@
   "engines": {
     "node": ">=24.0.0"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": ["bcrypt", "esbuild"],
+    "overrides": {
+      "tar": ">=7.5.10",
+      "serialize-javascript": ">=7.0.3"
+    }
+  },
   "scripts": {
-    "install:all": "cd Backend && pnpm install && cd ../frontend-react && pnpm install",
-    "postinstall": "cd Backend && pnpm install && cd ../frontend-react && pnpm install",
-    "dev": "cd Backend && pnpm dev & cd frontend-react && pnpm dev",
-    "dev:backend": "cd Backend && pnpm dev",
-    "dev:frontend": "cd frontend-react && pnpm dev",
-    "build": "cd frontend-react && pnpm build",
-    "test": "cd Backend && pnpm test",
-    "audit:all": "echo '--- Backend ---' && cd Backend && pnpm audit && echo '--- Frontend ---' && cd ../frontend-react && pnpm audit"
+    "dev": "pnpm --filter equipo3backend dev & pnpm --filter frontend-react dev",
+    "dev:backend": "pnpm --filter equipo3backend dev",
+    "dev:frontend": "pnpm --filter frontend-react dev",
+    "build": "pnpm --filter frontend-react build",
+    "test": "pnpm --filter equipo3backend test",
+    "audit:all": "cd Backend && pnpm audit && cd ../frontend-react && pnpm audit"
   }
 }

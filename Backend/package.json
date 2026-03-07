@@ -31,12 +31,5 @@
     "cross-env": "^7.0.3",
     "mocha": "^10.8.2",
     "nodemon": "^3.1.9"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": ["bcrypt"],
-    "overrides": {
-      "tar": ">=7.5.10",
-      "serialize-javascript": ">=7.0.3"
-    }
   }
 }
