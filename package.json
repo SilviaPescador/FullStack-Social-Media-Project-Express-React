@@ -14,7 +14,7 @@
     }
   },
   "scripts": {
-    "dev": "pnpm --filter equipo3backend dev & pnpm --filter frontend-react dev",
+    "dev": "pnpm --stream -r --parallel run dev",
     "dev:backend": "pnpm --filter equipo3backend dev",
     "dev:frontend": "pnpm --filter frontend-react dev",
     "build": "pnpm --filter frontend-react build",
